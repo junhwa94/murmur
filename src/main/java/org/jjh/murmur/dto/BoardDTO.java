@@ -1,6 +1,6 @@
 package org.jjh.murmur.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +21,9 @@ public class BoardDTO {
 	
 	private String content;
 	
-	private LocalDateTime regDate;
+	private int views;
+	
+	private  LocalDate regDate;
+
 
 }

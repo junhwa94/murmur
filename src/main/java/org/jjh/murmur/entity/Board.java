@@ -1,6 +1,6 @@
 package org.jjh.murmur.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Board {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long bno;
 	
 	private String writer;
@@ -29,6 +29,8 @@ public class Board {
 	
 	private String content;
 	
-	private LocalDateTime regDate;
+	private int views;
+	
+	private LocalDate regDate;
 
 }

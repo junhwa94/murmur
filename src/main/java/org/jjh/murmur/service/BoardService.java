@@ -17,6 +17,7 @@ public interface BoardService {
 				.writer(dto.getWriter())
 				.title(dto.getTitle())
 				.content(dto.getContent())
+				.views(dto.getViews())
 				.regDate(dto.getRegDate())
 				.build();
 		
@@ -30,6 +31,7 @@ public interface BoardService {
 				.writer(entity.getWriter())
 				.title(entity.getTitle())
 				.content(entity.getContent())
+				.views(entity.getViews())
 				.regDate(entity.getRegDate())
 				.build();	
 		
@@ -39,6 +41,8 @@ public interface BoardService {
 	}
 
 	PageResultDTO<BoardDTO, Board> getList(PageRequestDTO pageRequestDTO);
+
+	BoardDTO content(long bno);
 	
 	
 

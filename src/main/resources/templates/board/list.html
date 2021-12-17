@@ -8,29 +8,33 @@
 	
 	<h1>게시판</h1>
 	
-	<table>
+ 	<table>
 		<tr>
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>
-			<td>작성일</td>
-			<td>조회수</td>	
+			<td>조회수</td>
+			<td>작성일</td>	
 		</tr>
-		
+		 
 		<tr th:each="dto : ${result.dtoList}">
 			<td>[[${dto.bno}]]</td>
-			<td>[[${dto.title}]]</td>
+			<td>
+				<a th:href="@{board/content(bno=${dto.bno}, page=${result.page})}">
+					[[${dto.title}]]
+				</a>
+			</td>
 			<td>[[${dto.writer}]]</td>
-			<td>[[${dto.regDate}]]</td>
-			<td></td>		
-		</tr>
+			<td>[[${dto.views}]]</td>
+			<td>[[${dto.regDate}]]</td>	
+		</tr> 
 	</table>
 	
-	 <!-- 페이징 -->
+	<!-- 페이징 -->
     <ul class="pagination h-100 justify-content-center align-items-center">
 
         <li class="page-item" th:if="${result.prev}">
-            <a class="page-link" th:href="@{/board/list(page=${result.start - 1})}" tabindex="-1">Previous</a>
+            <a class="page-link" th:href="@{/board/list(page=${result.start - 1})}" tabindex="-1">이전</a>
         </li>
 
         <li th:class="'page-item ' + ${result.page == page ? 'active' : ''}"
@@ -40,9 +44,9 @@
             </a>
         </li>
         <li class="page-item" th:if="${result.next}">
-            <a class="page-link" th:href="@{/board/list(page=${result.end + 1})}">Next</a>
+            <a class="page-link" th:href="@{/board/list(page=${result.end + 1})}">다음</a>
         </li>
-    </ul>
+    </ul> 
 
 
 
