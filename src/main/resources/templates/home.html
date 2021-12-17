@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> <!-- 타임리프, 시큐리티 -->
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,6 +15,11 @@
 <span  sec:authorize="isAuthenticated()" sec:authentication="name">사용자</span>
 <span  sec:authorize="isAuthenticated()" sec:authentication="principal.authorities">권한</span>
 
+<br>
+
+<a th:href="@{/board/list}" sec:authorize="isAuthenticated()">게시판</a>
+
+<br>
 <a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a> 
 
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h1>게시판</h1>
+	
+	<table>
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+			<td>조회수</td>	
+		</tr>
+		
+		<tr th:each="dto : ${result.dtoList}">
+			<td>[[${dto.bno}]]</td>
+			<td>[[${dto.title}]]</td>
+			<td>[[${dto.writer}]]</td>
+			<td>[[${dto.regDate}]]</td>
+			<td></td>		
+		</tr>
+	</table>
+	
+	 <!-- 페이징 -->
+    <ul class="pagination h-100 justify-content-center align-items-center">
+
+        <li class="page-item" th:if="${result.prev}">
+            <a class="page-link" th:href="@{/board/list(page=${result.start - 1})}" tabindex="-1">Previous</a>
+        </li>
+
+        <li th:class="'page-item ' + ${result.page == page ? 'active' : ''}"
+            th:each="page: ${result.pageList}">
+            <a class="page-link" th:href="@{/board/list(page=${page})}">
+                [[${page}]]
+            </a>
+        </li>
+        <li class="page-item" th:if="${result.next}">
+            <a class="page-link" th:href="@{/board/list(page=${result.end + 1})}">Next</a>
+        </li>
+    </ul>
+
+
+
+</body>
+</html>
