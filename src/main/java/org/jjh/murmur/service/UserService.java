@@ -1,7 +1,7 @@
 package org.jjh.murmur.service;
 
-import org.jjh.murmur.model.Role;
-import org.jjh.murmur.model.User;
+import org.jjh.murmur.entity.Role;
+import org.jjh.murmur.entity.User;
 import org.jjh.murmur.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

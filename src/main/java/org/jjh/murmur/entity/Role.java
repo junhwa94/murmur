@@ -1,4 +1,4 @@
-package org.jjh.murmur.model;
+package org.jjh.murmur.entity;
 
 import java.util.List;
 
