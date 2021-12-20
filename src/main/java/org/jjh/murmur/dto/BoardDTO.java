@@ -1,5 +1,6 @@
 package org.jjh.murmur.dto;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +24,9 @@ public class BoardDTO {
 	
 	private int views;
 	
-	private  LocalDate regDate;
+	private Timestamp regDate;
+	
+	private Timestamp modDate;
 
 
 }

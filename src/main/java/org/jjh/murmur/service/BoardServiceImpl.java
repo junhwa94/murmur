@@ -1,5 +1,6 @@
 package org.jjh.murmur.service;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 import org.jjh.murmur.dto.BoardDTO;
@@ -42,6 +43,14 @@ public class BoardServiceImpl implements BoardService {
 		repo.save(entity);
 		
 		return entity.getBno();
+	}
+
+	@Override
+	public BoardDTO content(long bno) {
+		
+		Optional<Board> result = repo.findById(bno);
+		
+		return result.isPresent()? entityToDto(result.get()): null;
 	}
 
 }

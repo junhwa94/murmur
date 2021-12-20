@@ -8,7 +8,7 @@
 	
 	<h1>게시판</h1>
 	
- 	<table>
+ 	<table border="1">
 		<tr>
 			<td>번호</td>
 			<td>제목</td>
@@ -20,7 +20,7 @@
 		<tr th:each="dto : ${result.dtoList}">
 			<td>[[${dto.bno}]]</td>
 			<td>
-				<a th:href="@{board/content(bno=${dto.bno}, page=${result.page})}">
+				<a th:href="@{/board/content(bno=${dto.bno}, page=${result.page})}">
 					[[${dto.title}]]
 				</a>
 			</td>
@@ -29,6 +29,12 @@
 			<td>[[${dto.regDate}]]</td>	
 		</tr> 
 	</table>
+	
+	<!-- 글 작성 -->
+	<a th:href="@{/board/insertForm}">
+		<button type="button" class="btn btn-outline-primary">게시글 등록</button>
+	</a>
+	
 	
 	<!-- 페이징 -->
     <ul class="pagination h-100 justify-content-center align-items-center">

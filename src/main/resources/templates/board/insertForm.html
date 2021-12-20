@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/board/regBoardForm.css">
+</head>
+<body>
+
+	<h1>게시글 작성 폼</h1>
+	
+	<div id="table_wrap">
+	    <div id="product">
+	
+	
+	        <div class="row">
+	            <div class="key_col">제목</div>
+	            <div class="value_col"> <input type="text" name="title" class="board_input"></div>
+	        </div>
+	
+	        <div class="row">
+	            <div class="key_col">작성자</div>
+	            <div class="value_col" id="writer">
+	            <span sec:authentication="name"></span></div>
+	        </div>
+	
+	
+	        <div class="row">
+	            <div id="summernote" name="content" class="board_input">게시판 설명을 간단하게 적어주세요.</div>
+	        </div>
+	
+	        <div class="row">
+	            <div class="col-md-3"><button type="button" class="btn btn-success btn-lg" id="saveBtn">작성</button></div>
+	        </div>
+	
+	
+	
+	    </div>
+	</div>
+
+	<script src="/js/board/regBoard.js"></script>
+</body>
+</html>
