@@ -61,7 +61,6 @@
 
 
     var board = new Object();
-    var category = new Object();
 
     //데이터 저장
     function saveContent() {
@@ -84,13 +83,13 @@
         alert(data);
 
          $.ajax({
-            url:'/board/updateBoard',
+            url:'/board/modify',
             type : 'POST',
             data : board,
             success : function(data) {
                     alert("ajax 성공");
                     console.log(data);
-                    location.href = "/board/select?bno="+board['bno'];
+                    location.href = "/board/content?bno="+board['bno'];
             },
             error : function(request, status, error){
                    alert("ajax 실패");

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor // 의존성 자동 주입
 public class BoardServiceImpl implements BoardService {
 	
 	private final BoardRepository repo;
@@ -31,10 +31,10 @@ public class BoardServiceImpl implements BoardService {
 		Function<Board, BoardDTO> fn = (entity -> entityToDto(entity));
 		
 		return new PageResultDTO<>(result, fn);
-		
-		
-	}
 
+	}
+	
+	// 방명록 등록
 	@Override
 	public Long insertBoard(BoardDTO dto) {
 		
@@ -44,7 +44,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		return entity.getBno();
 	}
-
+	
+	// 방명록 조회
 	@Override
 	public BoardDTO content(long bno) {
 		
@@ -52,5 +53,30 @@ public class BoardServiceImpl implements BoardService {
 		
 		return result.isPresent()? entityToDto(result.get()): null;
 	}
+	
+	// 방명록 삭제
+	@Override
+	public void delete(long bno) {
+	
+		repo.deleteById(bno);		
+	}
+	
+	@Override
+	public void modify(BoardDTO dto) {
+		
+		Optional<Board> result = repo.findById(dto.getBno());
+		if(result.isPresent()) {
+			
+			Board entity = result.get();
+			
+			entity.changeTitle(dto.getTitle());
+	        entity.changeContent(dto.getContent());
+	        
+	        repo.save(entity);
+		}
+		
+	}
+
+
 
 }

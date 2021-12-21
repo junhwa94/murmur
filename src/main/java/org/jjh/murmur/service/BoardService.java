@@ -1,12 +1,16 @@
 package org.jjh.murmur.service;
 
+import javax.transaction.Transactional;
+
 import org.jjh.murmur.dto.BoardDTO;
 import org.jjh.murmur.dto.PageRequestDTO;
 import org.jjh.murmur.dto.PageResultDTO;
 import org.jjh.murmur.entity.Board;
+import org.jjh.murmur.repo.BoardRepository;
 
 // 서비스단을 중신을 db와 서비스는 엔티티 :::::: 서비스와 컨트롤러는 dto
 public interface BoardService {
+	
 	
 	// 게시물 작성
 	Long insertBoard(BoardDTO dto);
@@ -47,6 +51,17 @@ public interface BoardService {
 	
 	// 게시물 조회
 	BoardDTO content(long bno);
+	
+	// 게시물 삭제
+	void delete(long bno);
+	
+	// 게시물 수정
+	void modify(BoardDTO dto);
 
+//	@Transactional
+//	public int updateViews(Long bno) {
+//		
+//		return repo.updateView(bno);
+//	}
 
 }
