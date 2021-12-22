@@ -40,6 +40,7 @@ public class Member {
 	 
 	 private Boolean enabled;
 	 
+	 // entity Member를 MemberDTO 변환 
 	 public static Member createMember(MemberFormDTO memberFormDTO, PasswordEncoder passwordEncoder) {
 		 
 		 Member member = new Member();

@@ -51,9 +51,8 @@ public class MemberController {
 		try {
 			Member member = Member.createMember(memberFormDTO, passwordEncoder);
 			memberService.saveMember(member);
-		} catch (IllegalStateException e) {
 			
-			System.out.println("================문제 발생=================");
+		} catch (IllegalStateException e) {
 			
 			model.addAttribute("errorMessage", e.getMessage()); 
 			
