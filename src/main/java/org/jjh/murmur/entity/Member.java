@@ -51,7 +51,8 @@ public class Member {
 		 String password = passwordEncoder.encode(memberFormDTO.getPassword());
 		 
 		 member.setPassword(password);
-		 member.setAuth(memberFormDTO.getAuth());
+		 member.setAuth("USER");
+//		 member.setAuth(memberFormDTO.getAuth());
 		 member.setEnabled(memberFormDTO.getEnabled());
 		 
 		 return member;
