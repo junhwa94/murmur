@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/member/login/error")             // 로그인 실패 시 이동 할 url
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))     // 로그아웃 url
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))     // 로그아웃 url
                 .logoutSuccessUrl("/")                                                         // 로그아웃 성공 시 이동 할 url
         ;
 

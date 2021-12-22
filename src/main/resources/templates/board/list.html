@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+     	layout:decorate="~{layouts/layout1}" >
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
+<div layout:fragment="content">
 	
 	<h1>게시판</h1>
 	
@@ -53,6 +57,8 @@
             <a class="page-link" th:href="@{/board/list(page=${result.end + 1})}">다음</a>
         </li>
     </ul> 
+
+</div>
 
 
 

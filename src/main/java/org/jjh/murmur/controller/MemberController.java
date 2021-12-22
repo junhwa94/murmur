@@ -35,9 +35,6 @@ public class MemberController {
         return "member/login";
     }
     
-    
-    
-
     // 회원가입 페이지 진입
     @GetMapping("/joinForm")
     public String joinForm(Model model) {
@@ -55,7 +52,11 @@ public class MemberController {
 			Member member = Member.createMember(memberFormDTO, passwordEncoder);
 			memberService.saveMember(member);
 		} catch (IllegalStateException e) {
-			model.addAttribute("errorMessage", e.getMessage());
+			
+			System.out.println("================문제 발생=================");
+			
+			model.addAttribute("errorMessage", e.getMessage()); 
+			
 			return "member/joinForm";
 		}
 		
